@@ -47,6 +47,10 @@ Este projeto está sendo atualizado conforme novos conceitos são aprendidos dur
 
 Distribuído sob a licença MIT. Consulte o arquivo `LICENSE` para mais informações.
 
+## Convenção de Commits
+
+Este projeto segue o padrão [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) para manter um histórico de mudanças claro, legível e compatível com ferramentas de automação.
+
 ---
 
 Desenvolvido por Luciano Paranhos, como parte dos estudos sobre desenvolvimento de aplicativos para macOS.
