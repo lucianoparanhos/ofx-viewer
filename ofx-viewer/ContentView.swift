@@ -41,6 +41,7 @@ struct ContentView: View {
 #if os(macOS)
 import AppKit
 
+@MainActor
 func animateWindowResize(to newSize: NSSize) {
     if let window = NSApp.mainWindow {
         let currentFrame = window.frame
