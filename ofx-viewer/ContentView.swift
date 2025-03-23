@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppKit
 
 struct ContentView: View {
     @State private var searchText: String = ""
@@ -37,9 +38,7 @@ struct ContentView: View {
     }
 }
 
-// Extensão para suporte a fundo translúcido no macOS
-#if os(macOS)
-import AppKit
+
 
 @MainActor
 func animateWindowResize(to newSize: NSSize) {
@@ -73,7 +72,6 @@ struct VisualEffectView: NSViewRepresentable {
     
     func updateNSView(_ nsView: NSVisualEffectView, context: Context) {}
 }
-#endif
 
 #Preview {
     ContentView()
