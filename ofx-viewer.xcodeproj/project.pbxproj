@@ -86,11 +86,12 @@
 				};
 			};
 			buildConfigurationList = B5C8B8C32D90B9190077A973 /* Build configuration list for PBXProject "ofx-viewer" */;
-			developmentRegion = en;
+			developmentRegion = "pt-BR";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = B5C8B8BF2D90B9190077A973;
 			minimizedProjectReferenceProxies = 1;
