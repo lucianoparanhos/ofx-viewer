@@ -14,44 +14,19 @@ struct OFXViewerMainView: View {
     @State private var appState: AppState = .idle
     @State private var fileName: String = ""
     
+    @StateObject private var viewModel = OFXViewerViewModel()
+    
     var body: some View {
         ZStack {
             VisualEffectView(material: .underWindowBackground)
                 .ignoresSafeArea()
             
             if appState == .idle {
-                VStack {
-                    Image(systemName: "arrow.down.document")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 64, height: 64)
-                        .foregroundStyle(.secondary)
-                        .padding(.bottom, 8)
-                    
-                    Text("Nenhum arquivo carregado. Clique no botão para carregar um arquivo.")
-                        .multilineTextAlignment(.center)
-                        .padding()
-                    
-                    Button("Selecionar Arquivo") {
-                        fileName = "Nubank_2024-10-01.ofx"
-                        appState = .fileLoaded
-                        if let window = NSApp.windows.first {
-                            window.title = fileName
-                            animateWindowResize(to: NSSize(width: 1024, height: 768))
-                        }
-                    }
-                    .padding()
-                }
-                .frame(minWidth: 720, minHeight: 450)
+                OFXIdleView(viewModel: viewModel)
+                
+                
             } else {
-                VStack {
-                    HStack {
-                        EmptyView()
-                    }
-                    .buttonStyle(.bordered)
-                }
-                .frame(minWidth: 720, minHeight: 450)
-                .searchable(text: $searchText, placement: .toolbar)
+                OFXFileLoadedView(searchText: $searchText)
             }
             
         }
@@ -75,9 +50,17 @@ struct OFXViewerMainView: View {
         }
         .toolbar {
             ToolbarItem(placement: .automatic) {
-                Text("")
-                    .frame(width: 1)
-                    .opacity(0) // invisível
+                Button(action: {
+                    // Aqui você pode abrir um painel para selecionar arquivos futuramente
+                    fileName = "Selecionado_via_menu.ofx"
+                    appState = .fileLoaded
+                    if let window = NSApp.windows.first {
+                        window.title = fileName
+                        animateWindowResize(to: NSSize(width: 1024, height: 768))
+                    }
+                }) {
+                    Label("Abrir OFX", systemImage: "arrow.down.document")
+                }
             }
         }
     }

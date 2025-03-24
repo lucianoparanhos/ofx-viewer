@@ -1,10 +1,10 @@
 {
   "sourceLanguage" : "pt-BR",
   "strings" : {
-    "" : {
+    "Abrir OFX" : {
 
     },
-    "Nenhum arquivo carregado. Clique no botão para carregar um arquivo." : {
+    "Nenhum arquivo carregado..." : {
 
     },
     "Selecionar Arquivo" : {
