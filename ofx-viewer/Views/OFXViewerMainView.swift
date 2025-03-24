@@ -26,7 +26,7 @@ struct OFXViewerMainView: View {
         }
         .onAppear {
             if let window = NSApp.windows.first {
-                window.title = "Visualizador OFX"
+                window.title = NSLocalizedString("window-title", comment: "Título da janela principal")
             }
         }
         .toolbar {

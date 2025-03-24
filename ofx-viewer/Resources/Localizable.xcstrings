@@ -1,0 +1,23 @@
+{
+  "sourceLanguage" : "pt-BR",
+  "strings" : {
+    "window-title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OFX Viewer"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visualizador OFX"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
