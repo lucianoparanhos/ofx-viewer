@@ -8,7 +8,7 @@
 import SwiftUI
 import AppKit
 
-struct ContentView: View {
+struct OFXViewerMainView: View {
     @State private var searchText: String = ""
     
     var body: some View {
@@ -74,5 +74,5 @@ struct VisualEffectView: NSViewRepresentable {
 }
 
 #Preview {
-    ContentView()
+    OFXViewerMainView()
 }

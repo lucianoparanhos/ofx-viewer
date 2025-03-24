@@ -11,7 +11,7 @@ import SwiftUI
 struct ofx_viewerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OFXViewerMainView()
         }
     }
 }
