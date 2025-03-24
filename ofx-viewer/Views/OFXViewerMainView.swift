@@ -14,7 +14,7 @@ struct OFXViewerMainView: View {
     var body: some View {
         ZStack {
             VisualEffectView(material: .underWindowBackground)
-                .edgesIgnoringSafeArea(.all) // Garante que o fundo cubra toda a janela
+                .ignoresSafeArea()
             
             VStack {
                 HStack {
