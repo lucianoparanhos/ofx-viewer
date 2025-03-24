@@ -34,7 +34,7 @@ struct ContentView: View {
                 EmptyView()
             }
         }
-        .searchable(text: $searchText, placement: .toolbar, prompt: "Buscar...")
+        .searchable(text: $searchText, placement: .toolbar)
     }
 }
 
