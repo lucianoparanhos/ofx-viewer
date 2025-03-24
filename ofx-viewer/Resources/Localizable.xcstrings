@@ -1,6 +1,15 @@
 {
   "sourceLanguage" : "pt-BR",
   "strings" : {
+    "" : {
+
+    },
+    "Nenhum arquivo carregado. Clique no botão para carregar um arquivo." : {
+
+    },
+    "Selecionar Arquivo" : {
+
+    },
     "window-title" : {
       "extractionState" : "manual",
       "localizations" : {
