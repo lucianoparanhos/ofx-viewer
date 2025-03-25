@@ -13,13 +13,22 @@ struct OFXIdleView: View {
     @ObservedObject var viewModel: OFXViewerViewModel
     
     var body: some View {
-        VStack {
-            Image(systemName: "arrow.down.document") // Ícone central
-            Text("Nenhum arquivo carregado...")
+        VStack(spacing: 16) {
+            Image(systemName: "arrow.down.document")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 64, height: 64)
+                .foregroundStyle(.secondary)
+            
+            Text("Nenhum arquivo carregado. Selecione um arquivo para continuar.")
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+            
             Button("Selecionar Arquivo") {
-                viewModel.fileName = "Nubank_2024-10-01.ofx"
-                viewModel.appState = .fileLoaded
+                viewModel.carregarArquivo(nome: "Nubank_2024-10-01.ofx")
             }
+            .buttonStyle(.borderedProminent)
         }
+        .padding()
     }
 }

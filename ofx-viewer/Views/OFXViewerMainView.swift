@@ -21,10 +21,8 @@ struct OFXViewerMainView: View {
             VisualEffectView(material: .underWindowBackground)
                 .ignoresSafeArea()
             
-            if appState == .idle {
+            if viewModel.appState == .idle {
                 OFXIdleView(viewModel: viewModel)
-                
-                
             } else {
                 OFXFileLoadedView(searchText: $searchText)
             }
@@ -34,7 +32,7 @@ struct OFXViewerMainView: View {
             if let window = NSApp.windows.first {
                 window.setContentSize(NSSize(width: 720, height: 450))
 
-                if appState == .idle, let window = NSApp.windows.first {
+                if viewModel.appState == .idle, let window = NSApp.windows.first {
                     window.title = NSLocalizedString("window-title", comment: "Título da janela principal")
                 }
                 
