@@ -29,33 +29,12 @@ struct OFXViewerMainView: View {
             
         }
         .onAppear {
-            if let window = NSApp.windows.first {
-                window.setContentSize(NSSize(width: 720, height: 450))
-
-                if viewModel.appState == .idle, let window = NSApp.windows.first {
-                    window.title = NSLocalizedString("window-title", comment: "Título da janela principal")
-                }
-                
-                if let screenFrame = NSScreen.main?.visibleFrame {
-                    let windowSize = window.frame.size
-                    let origin = NSPoint(
-                        x: screenFrame.midX - windowSize.width / 2,
-                        y: screenFrame.midY - windowSize.height / 2
-                    )
-                    window.setFrameOrigin(origin)
-                }
-            }
+            viewModel.configurarJanelaInicial()
         }
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 Button(action: {
-                    // Aqui você pode abrir um painel para selecionar arquivos futuramente
-                    fileName = "Selecionado_via_menu.ofx"
-                    appState = .fileLoaded
-                    if let window = NSApp.windows.first {
-                        window.title = fileName
-                        animateWindowResize(to: NSSize(width: 1024, height: 768))
-                    }
+                    viewModel.carregarArquivo(nome: "Selecionado_via_menu.ofx")
                 }) {
                     Label("Abrir OFX", systemImage: "arrow.down.document")
                 }

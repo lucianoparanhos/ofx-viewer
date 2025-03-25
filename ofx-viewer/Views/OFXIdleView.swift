@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 typealias FileSelectionHandler = (String) -> Void
 
@@ -25,7 +26,16 @@ struct OFXIdleView: View {
                 .padding(.horizontal)
             
             Button("Selecionar Arquivo") {
-                viewModel.carregarArquivo(nome: "Nubank_2024-10-01.ofx")
+                let panel = NSOpenPanel()
+                panel.allowedContentTypes = [UTType(filenameExtension: "ofx")!]
+                panel.allowsMultipleSelection = false
+                panel.canChooseDirectories = false
+                panel.begin { response in
+                    if response == .OK, let url = panel.url {
+                        viewModel.carregarArquivo(nome: url.lastPathComponent)
+                        // Aqui você pode iniciar a leitura do arquivo
+                    }
+                }
             }
             .buttonStyle(.borderedProminent)
         }
