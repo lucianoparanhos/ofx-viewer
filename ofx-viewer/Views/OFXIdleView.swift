@@ -32,8 +32,7 @@ struct OFXIdleView: View {
                 panel.canChooseDirectories = false
                 panel.begin { response in
                     if response == .OK, let url = panel.url {
-                        viewModel.carregarArquivo(nome: url.lastPathComponent)
-                        // Aqui você pode iniciar a leitura do arquivo
+                        viewModel.carregarArquivo(url: url)
                     }
                 }
             }

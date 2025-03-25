@@ -13,12 +13,14 @@ class OFXViewerViewModel: ObservableObject {
     @Published var searchText: String = ""
     
     @MainActor
-    func carregarArquivo(nome: String) {
-        fileName = nome
+    func carregarArquivo(url: URL) {
+        fileName = url.lastPathComponent
         appState = .fileLoaded
         
         if let window = NSApp.windows.first {
-            window.title = nome
+            window.title = ""
+            // Não usamos .hidden no titleVisibility para preservar a altura padrão da toolbar
+            window.representedURL = url
         }
         
         Task {

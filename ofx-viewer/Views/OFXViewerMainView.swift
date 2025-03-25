@@ -32,9 +32,23 @@ struct OFXViewerMainView: View {
             viewModel.configurarJanelaInicial()
         }
         .toolbar {
-            ToolbarItem(placement: .automatic) {
+            if viewModel.appState == .fileLoaded {
+                ToolbarItem(placement: .navigation) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(viewModel.fileName) // Título dinâmico
+                            .font(.headline)
+                        
+                        Text("Visualizador OFX") // Subtítulo fixo
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
+            
+            ToolbarItem(placement: .primaryAction) {
                 Button(action: {
-                    viewModel.carregarArquivo(nome: "Selecionado_via_menu.ofx")
+                    let fakeURL = URL(fileURLWithPath: "/Users/seuusuario/Documentos/Selecionado_via_menu.ofx")
+                    viewModel.carregarArquivo(url: fakeURL)
                 }) {
                     Label("Abrir OFX", systemImage: "arrow.down.document")
                 }
