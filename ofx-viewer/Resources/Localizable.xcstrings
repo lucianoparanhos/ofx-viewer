@@ -10,9 +10,6 @@
     "Selecionar Arquivo" : {
 
     },
-    "Visualizador OFX" : {
-
-    },
     "window-title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -29,6 +26,9 @@
           }
         }
       }
+    },
+    "􀆭" : {
+
     }
   },
   "version" : "1.0"

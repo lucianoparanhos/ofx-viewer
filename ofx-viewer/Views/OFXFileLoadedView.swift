@@ -13,7 +13,7 @@ struct OFXFileLoadedView: View {
     var body: some View {
         VStack {
             HStack {
-                EmptyView()
+                Text("􀆭").font(.title)
             }
         }
         .searchable(text: $searchText, placement: .toolbar)
