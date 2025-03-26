@@ -12,6 +12,7 @@ typealias FileSelectionHandler = (String) -> Void
 
 struct OFXIdleView: View {
     @ObservedObject var viewModel: OFXViewerViewModel
+    @State private var isTargeted: Bool = false
 
     var body: some View {
         VStack(spacing: 16) {
@@ -19,7 +20,9 @@ struct OFXIdleView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 64, height: 64)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(isTargeted ? Color.accentColor : Color.secondary)
+                .animation(.easeInOut(duration: 0.3), value: isTargeted)
+                .symbolEffect(.wiggle, value: isTargeted)
 
             Text("Nenhum arquivo carregado. Selecione um arquivo para continuar.")
                 .multilineTextAlignment(.center)
@@ -39,7 +42,7 @@ struct OFXIdleView: View {
             .buttonStyle(.borderedProminent)
         }
         .padding()
-        .onDrop(of: [.fileURL], isTargeted: nil) { providers in
+        .onDrop(of: [.fileURL], isTargeted: $isTargeted) { providers in
             handleDrop(providers: providers)
         }
     }
